@@ -1,34 +1,46 @@
-import CustomDropdown from "../../components/CutomDropdown/CustomDropdown";
+// import CustomDropdown from "../../components/CutomDropdown/CustomDropdown";
 import {ArrowForwardOutlined} from "@mui/icons-material";
 import './HomePage.css';
+import Starter from "../../components/StarterPage/Starter";
+import medicon_img from '../../assets/images/medicon_icon.svg';
+import {useState} from "react";
+import OrganisationComponent from "../../components/OrganistionPage/OrganisationComponent";
 const HomePage = () =>{
-    const options = [
-        { label: 'Individual', value: 'individual' },
-        { label: 'Organisation', value: 'organisation' },
-    ]
-    const handleSelect = (item) => {
-        console.log('Selected item:', item);
-    };
+    // const options = [
+    //     { label: 'Individual', value: 'individual' },
+    //     { label: 'Organisation', value: 'organisation' },
+    // ]
+    // const handleSelect = (item) => {
+    //     console.log('Selected item:', item);
+    // };
+    const [option, setOption] = useState({label:'', value:''});
+    const [page, setPage] = useState(null);
+    const handleSubmit = (pageData) =>{
+        setPage(pageData.value);
+        console.log(pageData);
+
+    }
+    const [userEmail, setUserEmail] = useState('');
     return (
-        <div className="App">
+        <div className="home">
+            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                <img height={400} src={medicon_img} alt={'Medicon'}/>
+            </div>
             <div className={'container'}>
                 <div className={'header'}>
-                    <p>Welcome</p>
+                    <p>Sign Up</p>
                 </div>
-                <div className="form">
-                    <input type="email" name="text" autoComplete="off" required/>
-                    <label htmlFor="text" className="label-name">
-                <span className="content-name">
-                  Email
-                </span>
-                    </label>
-                </div>
-                <p style={{color: 'purple', fontFamily: 'sans-serif'}}>Select Account Type</p>
-                <CustomDropdown
-                    items={options}
-                    onSelect={handleSelect}
-                />
-                <button className={'next'} type={'submit'}>
+                {page == null || page === ''
+                    ?
+                    <Starter setUserEmail={setUserEmail} setOption={setOption}/>
+                    :
+                    page === 'organisation'
+                        ?
+                        <OrganisationComponent/>
+                        :
+                        <></>
+                }
+                <button className={'next'} type={'submit'} onClick={handleSubmit.bind(this, option)}>
                     <span>Next</span>
                     <ArrowForwardOutlined className={'icon'} fontSize={"small"}/>
                 </button>

@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './CustomDropdown.css';
 import {ArrowDropDownOutlined} from "@mui/icons-material";
-// import {ArrowDownwardOutlined} from "@mui/icons-material";
 
 
 const CustomDropdown = ({ items, onSelect }) => {

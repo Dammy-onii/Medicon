@@ -1,0 +1,112 @@
+.header{
+    color: #495867;
+    font-size: 35px;
+    font-family: "DialogInput", serif;
+    margin-top: 20px;
+}
+
+.body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    width: 80%;
+    position: relative;
+    height: 60px;
+    overflow: hidden;
+    padding: 5px;
+    /*background-color: rgba(160, 159, 159, 0.247);*/
+    margin-bottom: 20px;
+    /*border-radius: 5px;*/
+}
+
+.form-select{
+    width: 80%;
+}
+
+.option{
+    padding: 10px;
+    height: 40px;
+}
+
+select{
+    padding: 10px;
+}
+
+.form input {
+    width: 100%;
+    height: 100%;
+    color: black;
+    padding-top: 20px;
+    border: none;
+    background-color: transparent;
+}
+.form label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid white;
+    color: grey;
+}
+.form label::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #495867;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+}
+
+.content-name {
+    position: absolute;
+    bottom: 0;
+    left: 7px;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+}
+.form input:focus {
+    outline: none;
+}
+.form input:focus + .label-name .content-name,
+.form input:valid + .label-name .content-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    left: 0px;
+    color: #495867;
+}
+.form input:focus + .label-name::after,
+.form input:valid + .label-name::after {
+    transform: translateX(0%);
+}
+
+/*.next{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    gap: 30%;*/
+/*    background-color: purple;*/
+/*    outline: none;*/
+/*    border: none;*/
+/*    width: 25%;*/
+/*    margin-top: 10%;*/
+/*    padding: 15px;*/
+/*    color: white;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+
+/*}*/
+
+/*.next:hover .icon{*/
+/*    transform: translateX(10px);*/
+/*    transition: 0.5s ease 0.1s;*/
+/*}*/
